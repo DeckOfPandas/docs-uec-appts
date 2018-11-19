@@ -9,21 +9,23 @@
 
 ## Netlify deployments for this website
 
-The production branch for this repository is `master`, which is currently deployed on Netlify and is available at the site's base URL: https://cabbagepopsicle.com .
+The production branch for this repository is `master`, which is currently deployed on Netlify and is available at the site's base URL: https://cabbagepopsicle.com . There are two other branches that are deployed under subdomains -- see below for details.
 
-Netlify will build changes pushed to Pull Requests against nominated branches of this repository, making a preview deployment available via one-off URLs that will be posted in the comments thread for a PR (if a build succeeds). Further pushes to a given PR will trigger further builds on Netlify, with the deployments being avaiable at the same URL.
-
-When ready to make the new work available as part of the team's working process, the PR can be merged, and the deployment will then be made available at nominated subdomains of the site's URL.
-
-Currently, the nominated branches for stable Netlify deployments are:
+Currently, the other branches for stable Netlify deployments are:
 * `master`: current production deployment --> https://cabbagepopsicle.com
 * `preview`: current proposed work made available for peer review --> https://preview.cabbagepopsicle.com
 * `development`: current working branch for the team --> https://development.cabbagepopsicle.com
 
+Netlify will build and deploy *all* branches of this repository, with builds triggered by creation of new branches or by updates to existing ones. Note that making any changes at all to any branch will trigger builds on Netlify, whether made by merging Pull Requests or directly in-browser, or by pushing from a local machine. 
+
+If a Pull Request is opened from a new branch against an existing one, Netlify will post a one-off URL that will be in the comments thread for a PR (if a build succeeds). Further pushes to a given PR will trigger further builds on Netlify, with the deployments being available at the same temporary URL. 
+
+Changes made to the nominated stable branches detailed above will trigger Netlify builds and deployments available at the specified externally facing URLs, not just at one-off URLs as for other branches. With this in mind, it is recommended that workflow is managaed entirely via Pull Requests, as this will reduce the likelihood of work being made available at reserved URLs in error. Another recommendation is to protect direct pushing to these nominated branches.
+
 Example workflow for a developer:
 * Work on the website locally, testing on localhost
 * Commit and push changes to branch `foo`
-* Open a Pull Request from `foo` against `development`
+* Open a Pull Request from `foo` against `development`, which is a nominated branch
 * See a comment in the PR thread posted by Netlify stating that the build has started, which will be updated on success or fail, with a one-off Netlify URL if successful
 * View the temporary deployment, noting changes that need to be made
 * Push more changes from local machine to branch `foo`, noting the Netlify comment that another build has started
@@ -31,9 +33,7 @@ Example workflow for a developer:
 
 ## Extra options for site administrators
 
-If desired, Netlify can build all pushes to any branch of this repository, not just nominated branches; however, in order to view deployments of a contribution outside a PR against a nominated branch, a developer will require access to the Netlify account themselves.
-
-To view all deployments:
+To view all deployments, whether part of PRs or not:
 * Open the Netlify control panel for this website, and click the "Deploys" tab
 * You will see something like "Branch Deploy: foo@a3ef1ea" at the top of the list of recent deploys
   * Red flair "failed" if the build failed, with full console output available
