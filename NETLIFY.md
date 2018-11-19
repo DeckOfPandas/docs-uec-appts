@@ -18,7 +18,7 @@ The production branch, `master`, is currently deployed on Netlify and is availab
 
 Netlify will build and deploy *all* branches of this repository, with builds triggered by creation of new branches or by updates to existing ones. Note that making any changes at all to any branch will trigger builds on Netlify, whether made by merging Pull Requests or directly in-browser, or by pushing from a local machine. 
 
-If a Pull Request is opened from a new branch against an existing one, Netlify will post a one-off URL that will be in the comments thread for a PR (if a build succeeds). Further pushes to a given PR will trigger further builds on Netlify, with the deployments being available at the same temporary URL. 
+If a Pull Request is opened from a new branch against an existing one, Netlify will post a one-off URL that will be in the comments thread for that PR if the build succeeds, or a link to console output if it fails (admin only). Further pushes to a given PR will trigger further builds on Netlify, with the deployments being available at the same temporary URL. 
 
 Changes made to the nominated stable branches detailed above will trigger Netlify builds and deployments available at the specified externally facing URLs, not just at one-off URLs as for other branches. With this in mind, it is recommended that workflow is managaed entirely via Pull Requests, as this will reduce the likelihood of work being made available at reserved URLs in error. Another recommendation is to protect direct pushing to these nominated branches.
 
