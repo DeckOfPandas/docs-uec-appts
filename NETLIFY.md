@@ -9,9 +9,9 @@
 
 ## Netlify deployments for this website
 
-The production branch for this repository is `master`, which is currently deployed on Netlify and is available at the site's base URL: https://cabbagepopsicle.com . There are two other branches that are deployed under subdomains -- see below for details.
+Our Netlify service has been set up to assume that this site is built with jekyll into a folder named `_site`. On trigger, Netlify has been instructed to execute `jekyll build`, with the branch `master` being the production branch, ...and that's it.
 
-Currently, the other branches for stable Netlify deployments are:
+The production branch, `master`, is currently deployed on Netlify and is available at the site's base URL: https://cabbagepopsicle.com . There are a total of three branches deployed under subdomains:
 * `master`: current production deployment --> https://cabbagepopsicle.com
 * `preview`: current proposed work made available for peer review --> https://preview.cabbagepopsicle.com
 * `development`: current working branch for the team --> https://development.cabbagepopsicle.com
